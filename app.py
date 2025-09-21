@@ -74,7 +74,9 @@ def caption_image():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# 🏁 Run
+
 if __name__ == '__main__':
-    print("🚀 Flask server is starting... Visit http://localhost:5000/caption to test the API.")
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))  # Render sets this dynamically
+    print(f"🚀 Flask server is running on port {port}")
+    app.run(host='0.0.0.0', port=port, debug=True)
+
